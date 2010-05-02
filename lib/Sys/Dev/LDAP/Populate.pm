@@ -11,11 +11,11 @@ Sys::Dev::LDAP::Populate - Populates various parts of /dev/ldap.
 
 =head1 VERSION
 
-Version 0.0.0
+Version 0.1.0
 
 =cut
 
-our $VERSION = '0.0.0';
+our $VERSION = '0.1.0';
 
 
 =head1 SYNOPSIS

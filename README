@@ -3,6 +3,8 @@ Sys-Dev-LDAP-Populate
 This provides a EESDP compatible method for populating entries under
 "/dev/ldap/".
 
+A rcNG implementation is also provided to initiating it upon boot on rcNG systems.
+
 INSTALLATION
 
 To install this module, run the following commands:
@@ -11,6 +13,12 @@ To install this module, run the following commands:
 	make
 	make test
 	make install
+
+If rcNG support is desired.
+
+	cp -rp rcNG/* /usr/local/rc.d/
+	echo devldappopulate_enable=\"YES\" >> /etc/rc.conf
+	echo devldappopulate2_enable=\"YES\" >> /etc/rc.conf
 
 SUPPORT AND DOCUMENTATION
 
