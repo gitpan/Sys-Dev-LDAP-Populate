@@ -22,12 +22,10 @@
 #OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 #THE POSSIBILITY OF SUCH DAMAGE.
 
-# PROVIDE: devldap-populate
-# REQUIRE: NETWORKING
-# BEFORE: SERVERS
+# PROVIDE: devldap-populate3
+# REQUIRE: NETWORKING named slapd
 
-# This one provides support for this, pre-slapd. If any thing post slapd changes, the second
-# one should also be ran.
+#This is the last one, running post named and slapd.
 
 . /etc/rc.subr
 
@@ -63,6 +61,7 @@ devldap_stop()
 
 	devldap-populate
 }
+
 
 load_rc_config $name
 run_rc_command "$1"

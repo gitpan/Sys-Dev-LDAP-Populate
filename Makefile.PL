@@ -15,7 +15,7 @@ WriteMakefile(
 			  PREREQ_PM => {
 							'Test::More'=>0,
 							'Sys::Hostname'=>0,
-							'Net::LDAP::AutoDNs'=>0,
+							'Net::LDAP::AutoDNs'=>"0.2.1",
 							'Net::LDAP::AutoServer'=>0,
 							},
 			  dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },

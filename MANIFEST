@@ -9,3 +9,4 @@ t/pod.t
 bin/devldap-populate
 rcNG/devldap-populate
 rcNG/devldap-populate2
+rcNG/devldap-populate3

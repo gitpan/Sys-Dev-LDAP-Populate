@@ -11,11 +11,11 @@ Sys::Dev::LDAP::Populate - Populates various parts of /dev/ldap.
 
 =head1 VERSION
 
-Version 0.1.0
+Version 0.1.1
 
 =cut
 
-our $VERSION = '0.1.0';
+our $VERSION = '0.1.1';
 
 
 =head1 SYNOPSIS
@@ -80,7 +80,7 @@ sub populate{
 	}
 
 	#creates the new AutoDNs object
-	my $AutoDNs=Net::LDAP::AutoDNs->new({methodes=>"env,hostname"});
+	my $AutoDNs=Net::LDAP::AutoDNs->new({methods=>"env,hostname"});
 	my $AutoServers=Net::LDAP::AutoServer->new({methods=>'hostname,dns,env'});
 	
 	#holds the file handle

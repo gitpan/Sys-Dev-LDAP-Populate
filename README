@@ -16,9 +16,12 @@ To install this module, run the following commands:
 
 If rcNG support is desired.
 
-	cp -rp rcNG/* /usr/local/rc.d/
+	cp -rp rcNG/* /usr/local/etc/rc.d/
 	echo devldappopulate_enable=\"YES\" >> /etc/rc.conf
-	echo devldappopulate2_enable=\"YES\" >> /etc/rc.conf
+
+RCNG SUPPORT
+
+rcNG startup scripts for FreeBSD are also provided.
 
 SUPPORT AND DOCUMENTATION
 

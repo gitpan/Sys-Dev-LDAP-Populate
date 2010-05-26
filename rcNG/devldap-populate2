@@ -22,16 +22,48 @@
 #OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 #THE POSSIBILITY OF SUCH DAMAGE.
 
-# PROVIDE: devldap-populate
-# REQUIRE: NETWORKING slapd
+# PROVIDE: devldap-populate2
+# REQUIRE: NETWORKING named
+# BEFORE: slapd
 
-# This one provides support for this post starting slapd, incase any thing has changed.
+# The provides the middle one, post named and prior to slapd.
 
 . /etc/rc.subr
 
-name="devldappopulate2"
+name="devldappopulate"
 rcvar=`set_rcvar`
-command="/usr/local/bin/devldap-populate"
+start_cmd="devldap_start"
+stop_cmd="devldap_stop"
+
+devldap_start()
+{
+	if ! kldstat -q -m ldap;
+        then
+		if ! kldload ldap > /dev/null 2>&1;
+			then
+			warn "Can't load ldap module."
+			return 1
+		fi
+	fi
+
+	devldap-populate
+}
+
+devldap_stop()
+{
+	if kldstat -q -m ldap;
+        then
+		if ! kldunload ldap > /dev/null 2>&1;
+			then
+			warn "Can't load ldap module."
+			return 1
+		fi
+	fi
+
+	devldap-populate
+}
+
 
 load_rc_config $name
 run_rc_command "$1"
+
